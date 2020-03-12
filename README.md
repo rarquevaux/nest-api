@@ -3,12 +3,12 @@
 Build the image
 
 ```
-docker build
+docker build -t app .
 ```
 Run it
 
 ```
-docker run -p 3000:3000
+docker run -p 3000:3000 app
 ```
 
 
