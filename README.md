@@ -1,14 +1,5 @@
-### To Run it with Docker
-
-Build the image
+### Run with Docker compose
 
 ```
-docker build -t app .
+docker-compose up
 ```
-Run it
-
-```
-docker run -p 3000:3000 app
-```
-
-
