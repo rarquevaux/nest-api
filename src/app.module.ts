@@ -5,6 +5,7 @@ import { ShoppingCartController } from './shopping-cart/shopping-cart.controller
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Item } from './items/item.interface';
 //import { ConfigModule } from '@nestjs/config';
+import { ItemsModule } from './items/items.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { Item } from './items/item.interface';
       synchronize: true,
 
     }),
+    ItemsModule,
   ],
   controllers: [ItemsController, ShoppingCartController],
   providers: [ItemsService],
