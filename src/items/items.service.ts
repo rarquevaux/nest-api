@@ -1,18 +1,19 @@
 import { Injectable } from '@nestjs/common'
 import { Item } from './item.interface'
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class ItemsService {
-
-    private readonly items: Item[] = [];
+    constructor(
+        @InjectRepository(Item)
+        private itemsRepository: Repository<Item>,
+    ){}
     
-    findAll(): Item[] {
-        return this.items;
+    findAll(): Promise<Item[]> {
+        return this.itemsRepository.find();
     }
 
-    create(item: Item) {
-        this.items.push(item);
-    }
-
+//TO-DO add all crud methods
 
 }

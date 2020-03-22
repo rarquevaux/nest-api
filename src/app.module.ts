@@ -1,11 +1,8 @@
 import { Module } from '@nestjs/common';
-import { ItemsController } from './items/items.controller';
-import { ItemsService } from './items/items.service';
 import { ShoppingCartController } from './shopping-cart/shopping-cart.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Item } from './items/item.interface';
-//import { ConfigModule } from '@nestjs/config';
 import { ItemsModule } from './items/items.module';
+import { Item } from './items/item.entity';
 
 @Module({
   imports: [
@@ -26,8 +23,8 @@ import { ItemsModule } from './items/items.module';
     }),
     ItemsModule,
   ],
-  controllers: [ItemsController, ShoppingCartController],
-  providers: [ItemsService],
+  controllers: [ShoppingCartController],
+  providers: [],
 })
 
 export class AppModule {}

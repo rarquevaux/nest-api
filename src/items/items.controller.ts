@@ -14,9 +14,10 @@ export class ItemsController {
     return this.itemsService.findAll();
   }
 
+  /*
   @Post()
   @UsePipes (new ValidationPipe())
   async create(@Body() createItemDto: CreateItemDto) {
     this.itemsService.create(createItemDto);
-  }
+  } */
 }
