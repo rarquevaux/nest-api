@@ -1,4 +1,4 @@
-import { Get, Post, Body, Controller, UsePipes } from '@nestjs/common';
+import { Get, Post, Body, Controller, UsePipes, Param, Put, Delete } from '@nestjs/common';
 import { ItemsService } from './items.service';
 import { Item } from './item.interface';
 import { ValidationPipe } from '../common/validation.pipe';
@@ -22,7 +22,17 @@ export class ItemsController {
     
   } 
 
-  //TO-DO add a route to delete an item
+  //TO DO - protect the put and delete methods
+
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return `Not yet implemented`;
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return `Not yet implemented`;
+  }
 
 
 }

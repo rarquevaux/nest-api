@@ -10,12 +10,14 @@ export class ItemsService {
         private itemsRepository: Repository<Item>,
     ){}
     
-    findAll(): Promise<Item[]> {
+    async findAll(): Promise<Item[]> {
         return this.itemsRepository.find();
     }
 
+
+
     async create(item: Item): Promise<Item>{
-        await this.itemsRepository.save(item)
+        await this.itemsRepository.save(item);
         return item 
     }
 
