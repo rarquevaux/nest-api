@@ -15,5 +15,8 @@ export class ItemsService {
     }
 
 //TO-DO add all crud methods
+    async create(item: Item): Promise<void>{
+        await this.itemsRepository.save(item)
+    }
 
 }
