@@ -14,9 +14,9 @@ export class ItemsService {
         return this.itemsRepository.find();
     }
 
-//TO-DO add all crud methods
-    async create(item: Item): Promise<void>{
+    async create(item: Item): Promise<Item>{
         await this.itemsRepository.save(item)
+        return item 
     }
 
 }

@@ -17,7 +17,12 @@ export class ItemsController {
   
   @Post()
   @UsePipes (new ValidationPipe())
-  async create(@Body() createItemDto: CreateItemDto) {
-    this.itemsService.create(createItemDto);
+  async create(@Body() createItemDto: CreateItemDto): Promise<Item> {
+    return this.itemsService.create(createItemDto);
+    
   } 
+
+  //TO-DO add a route to delete an item
+
+
 }
