@@ -19,18 +19,19 @@ export class ItemsController {
   @UsePipes (new ValidationPipe())
   async create(@Body() createItemDto: CreateItemDto): Promise<Item> {
     return this.itemsService.create(createItemDto);
+
     
   } 
 
-  //TO DO - protect the put and delete methods
-
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return `Not yet implemented`;
+  async getById(@Param('id') id: number): Promise<Item> {
+    const item: Item = await this.itemsService.findOne(id);
+    return item
   }
 
+  // TODO
   @Delete(':id')
-  remove(@Param('id') id: string) {
+  remove(@Param('id') id: number) {
     return `Not yet implemented`;
   }
 

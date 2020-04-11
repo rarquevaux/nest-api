@@ -11,14 +11,20 @@ export class ItemsService {
     ){}
     
     async findAll(): Promise<Item[]> {
-        return this.itemsRepository.find();
+        const allItem: Item[] = await this.itemsRepository.find();
+        return allItem;
     }
 
+
+    async findOne(id: number): Promise<Item>{
+        const item: Item = await this.itemsRepository.findOne(id);
+        return item;
+    } 
 
 
     async create(item: Item): Promise<Item>{
         await this.itemsRepository.save(item);
-        return item 
+        return item;
     }
 
 }
