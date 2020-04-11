@@ -8,11 +8,14 @@ import {
   Put, 
   Delete,
   NotFoundException,
+  BadRequestException,
+  UseGuards,
  } from '@nestjs/common';
 import { ItemsService } from './items.service';
 import { Item } from './item.interface';
 import { ValidationPipe } from '../common/validation.pipe';
 import { CreateItemDto } from './create-item.dto';
+import { AuthGuard } from '@nestjs/passport'
 
 
 @Controller('items')
@@ -25,6 +28,7 @@ export class ItemsController {
   }
 
   
+  @UseGuards(AuthGuard('jwt'))
   @Post()
   @UsePipes (new ValidationPipe())
   async create(@Body() createItemDto: CreateItemDto): Promise<Item> {
@@ -43,9 +47,11 @@ export class ItemsController {
   }
 
   // TODO
+  @UseGuards(AuthGuard('jwt'))
   @Delete(':id')
-  remove(@Param('id') id: number) {
-    return `Not yet implemented`;
+  delete(@Param('id') id: number) {
+    //this.itemsService.delete(id);
+    throw new BadRequestException();
   }
 
 
