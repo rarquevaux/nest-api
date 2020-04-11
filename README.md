@@ -1,3 +1,18 @@
+
+### Clone the repository
+
+### Add .env file
+
+```
+SERVER_PORT=3000
+DB_PASSWORD=
+DB_USERNAME=
+DB_DATABASE_NAME=
+PGADMIN_DEFAULT_EMAIL=
+PGADMIN_DEFAULT_PASSWORD=
+PGADMIN_PORT=5050
+```
+
 ### Run with Docker compose
 
 ```
