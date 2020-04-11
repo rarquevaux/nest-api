@@ -1,4 +1,14 @@
-import { Get, Post, Body, Controller, UsePipes, Param, Put, Delete } from '@nestjs/common';
+import { 
+  Get,
+  Post, 
+  Body, 
+  Controller, 
+  UsePipes, 
+  Param, 
+  Put, 
+  Delete,
+  NotFoundException,
+ } from '@nestjs/common';
 import { ItemsService } from './items.service';
 import { Item } from './item.interface';
 import { ValidationPipe } from '../common/validation.pipe';
@@ -18,15 +28,18 @@ export class ItemsController {
   @Post()
   @UsePipes (new ValidationPipe())
   async create(@Body() createItemDto: CreateItemDto): Promise<Item> {
-    return this.itemsService.create(createItemDto);
+    return this.itemsService.createItem(createItemDto);
 
     
   } 
 
   @Get(':id')
   async getById(@Param('id') id: number): Promise<Item> {
-    const item: Item = await this.itemsService.findOne(id);
-    return item
+    const itemInfo = await this.itemsService.findOne(id);
+    if(!itemInfo){
+      throw new NotFoundException();
+    }
+    return itemInfo
   }
 
   // TODO
