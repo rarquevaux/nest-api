@@ -3,6 +3,7 @@ import { ShoppingCartController } from './shopping-cart/shopping-cart.controller
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ItemsModule } from './items/items.module';
 import { Item } from './items/item.entity';
+import { AuthzModule } from './authz/authz.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { Item } from './items/item.entity';
 
     }),
     ItemsModule,
+    AuthzModule,
   ],
   controllers: [ShoppingCartController],
   providers: [],
