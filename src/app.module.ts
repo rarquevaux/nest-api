@@ -1,9 +1,11 @@
 import { Module } from '@nestjs/common';
-import { ShoppingCartController } from './shopping-cart/shopping-cart.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ItemsModule } from './items/items.module';
 import { Item } from './items/item.entity';
 import { AuthzModule } from './authz/authz.module';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 @Module({
   imports: [
@@ -15,9 +17,9 @@ import { AuthzModule } from './authz/authz.module';
       type: "postgres",
       host: 'postgres',
       port: 5432,
-      username: 'admin',
-      password: 'nesta',
-      database: 'items',
+      username: `${process.env.DB_USERNAME}`,
+      password: `${process.env.DB_PASSWORD}`,
+      database: `${process.env.DB_DATABASE_NAME}`,
       entities: [Item],
       synchronize: true,
 
@@ -25,7 +27,7 @@ import { AuthzModule } from './authz/authz.module';
     ItemsModule,
     AuthzModule,
   ],
-  controllers: [ShoppingCartController],
+  controllers: [],
   providers: [],
 })
 
