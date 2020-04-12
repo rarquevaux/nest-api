@@ -37,7 +37,7 @@ export class ItemsController {
   async getById(@Param('id') id: number): Promise<Item> {
     const itemInfo = await this.itemsService.findOne(id);
     if(!itemInfo){
-      throw new NotFoundException();
+      throw new NotFoundException(`Item with id ${id} not found`);
     }
     return itemInfo
   }
