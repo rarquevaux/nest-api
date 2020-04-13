@@ -23,7 +23,7 @@ export class ItemsService {
     * @param a number
     * @return an Item
     * */
-    async findOne(id: number): Promise<Item>{
+    async findOne(id: number): Promise<Item> {
         return this.itemsRepository.findOne(id);
     } 
 
@@ -32,7 +32,7 @@ export class ItemsService {
     * @param an Item
     * @return an Item
     * */
-    async createItem(item: Item): Promise<Item>{
+    async createItem(item: Item): Promise<Item> {
        return this.itemsRepository.save(item);
     }
 
