@@ -4,24 +4,11 @@ import { ItemsModule } from './items/items.module';
 import { Item } from './items/item.entity';
 import { AuthzModule } from './authz/authz.module';
 import * as dotenv from 'dotenv';
-import { ClientsModule, Transport } from "@nestjs/microservices";
-
 
 dotenv.config();
 
 @Module({
   imports: [
-    // TO DO use a custom provider to fetch the configuration from a service 
-    ClientsModule.register([
-      {
-        name: "ms-data-sharing",
-        transport: Transport.TCP,
-        options: {
-          host: "127.0.0.1",
-          port: 3001
-        }
-      }
-    ]),
     // TO DO -> use ConfigModule to pass config
     // ConfigModule exposes a ConfigService wich loads the .env file
     //ConfigModule.forRoot(),
