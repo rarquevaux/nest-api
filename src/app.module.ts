@@ -12,7 +12,7 @@ dotenv.config();
     // TO DO -> use ConfigModule to pass config
     // ConfigModule exposes a ConfigService wich loads the .env file
     //ConfigModule.forRoot(),
-    // TO DO -> create an ormconfig.json file
+    //TO DO -> create an ormconfig.json file
     TypeOrmModule.forRoot({
       type: "postgres",
       host: 'postgres',
