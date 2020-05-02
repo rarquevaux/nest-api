@@ -15,7 +15,7 @@ export class ItemsService {
         this.client = ClientProxyFactory.create({
             transport: Transport.TCP,
             options: {
-              host: '0.0.0.0',
+              host: 'main_ms_data_sharing',
               port: 3001,
             },
         });
